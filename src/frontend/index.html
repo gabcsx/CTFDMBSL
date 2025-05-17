@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CinemaFX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.webp" alt="CinemaFX Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Best Selling</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <button class="search-button">🔍</button>
+            </div>
+            <a href="create-account.html" class="account-icon">👤</a>
+            <a href="#cart" class="cart-icon">🛒</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Your Beauty, Our Passion</h2>
+            <p>Discover the best in cosmetics for your unique style.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </section>
+
+        <section id="products" class="products-section">
+            <h2>Recommended for you</h2>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="images/SepiWhite.png" alt="SepiWhite Product">
+                    <div class="slide-content">
+                        <h3>SepiWhite</h3>
+                        <p>MAGIC WHITE Sepi MSH with Allantoin by Cinema SinFX</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/Scalp Grower Serum.png" alt="Follice Revive Product">
+                    <div class="slide-content">
+                        <h3>Follice Revive</h3>
+                        <p>Scalp Follicle Grower Serum</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/Skin booster.webp" alt="SkinFX Vitamin C">
+                    <div class="slide-content">
+                        <h3>SkinFX VITAMIN C</h3>
+                        <p>Cinema SkinFX VITAMIN C SKIN BOOSTER 30ML</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/Azelaic Acid.webp" alt="Azelaic Acid Serum">
+                    <div class="slide-content">
+                        <h3>Azelaic Acid Serum</h3>
+                        <p>CINEMA SKINFX AZELAIC ACID SERUM</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/Toner.webp" alt="Toner">
+                    <div class="slide-content">
+                        <h3>Renewed Glycol</h3>
+                        <p>RENEWED GLYCOL 7% TONER</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/Skin protocol.webp" alt="Skin Protocol">
+                    <div class="slide-content">
+                        <h3>Skin Protocol</h3>
+                        <p>SKIN PROTOCOL LIPID REPAIR MOISTURIZER</p>
+                        <button class="btn product-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="slideshow-controls">
+                    <button class="nav-button" id="prevButton">❮</button>
+                    <button class="pause-button" id="pauseButton">⏸️</button>
+                    <button class="nav-button" id="nextButton">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <div class="about-container">
+        <!-- Mission and Values -->
+        <div class="mission-container">
+            <div class="mission-content">
+                <h3>Our Mission</h3>
+                <p>Discover Cinema SkinFX, where effective skincare meets affordability. Our premium formulations, crafted with high-quality ingredients, deliver visible results without the high price tag. Transform your skin into its best version with our range of products designed to hydrate, brighten, and rejuvenate.
+                    At Cinema SkinFX, we believe luxury skincare should be accessible to all, offering you the confidence of radiant skin without compromise. Experience affordable luxury today!
+                </p>
+            </div>
+            <div class="values">
+                <h3>Our Values</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <span class="value-icon">🌿</span>
+                        <h4>Natural</h4>
+                        <p>Committed to natural ingredients</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">🔬</span>
+                        <h4>Innovation</h4>
+                        <p>Advanced skincare technology</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">♻️</span>
+                        <h4>Sustainable</h4>
+                        <p>Eco-friendly practices</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">💝</span>
+                        <h4>Quality</h4>
+                        <p>Premium products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h3>Meet Our Team</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team/sarah.jpg" alt="Sarah Johnson">
+                    <h4>Sarah Johnson</h4>
+                    <p class="role">Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/michael.jpg" alt="Michael Chen">
+                    <h4>Michael Chen</h4>
+                    <p class="role">Head of Research</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team/emma.jpg" alt="Emma Davis">
+                    <h4>Emma Davis</h4>
+                    <p class="role">Product Developer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-section">
+    <div class="stat-item">
+        <span class="stat-number">16.5k</span>
+        <p>Followers</p>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">19.7k</span>
+        <p>Ratings</p>
+        <div class="star-rating">
+            <span class="rating-number">5.0</span>
+            <span class="stars">★★★★★</span>
+        </div>
+    </div>
+    <div class="stat-item">
+        <span class="stat-number">38</span>
+        <p>Products</p>
+    </div>
+</div>
+
+</section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CosmetiCore. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        let isPaused = false;
+        let slideshowInterval;
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            slides[slideIndex].style.display = "block";
+            slideIndex++;
+        }
+
+        function startSlideshow() {
+            slideshowInterval = setInterval(showSlides, 3000);
+        }
+
+        document.getElementById("pauseButton").addEventListener("click", function() {
+            if (isPaused) {
+                startSlideshow();
+                this.innerHTML = "⏸️";
+            } else {
+                clearInterval(slideshowInterval);
+                this.innerHTML = "▶️";
+            }
+            isPaused = !isPaused;
+        });
+
+        document.getElementById("prevButton").addEventListener("click", function() {
+            clearInterval(slideshowInterval);
+            slideIndex = (slideIndex <= 1) ? document.getElementsByClassName("mySlides").length : slideIndex - 2;
+            showSlides();
+            if (!isPaused) startSlideshow();
+        });
+
+        document.getElementById("nextButton").addEventListener("click", function() {
+            clearInterval(slideshowInterval);
+            showSlides();
+            if (!isPaused) startSlideshow();
+        });
+
+        window.onload = function() {
+            showSlides();
+            startSlideshow();
+        };
+    </script>
+</body>
+</html>
