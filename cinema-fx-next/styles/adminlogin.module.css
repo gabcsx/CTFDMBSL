@@ -1,0 +1,139 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+}
+
+.form {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+  max-width: 350px;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.2rem;
+  color: #e91e63;
+  font-size: 1.6rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  color: #e91e63;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.inputGroup {
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.inputGroup input {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.inputGroup input:focus {
+  border-color: #e91e63;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.15);
+}
+
+.button {
+  width: 100%;
+  padding: 0.7rem 0;
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  transition: background 0.2s;
+}
+
+.button:hover,
+.button:focus {
+  background: #c2185b;
+  outline: none;
+}
+
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.dividerWithText::before,
+.dividerWithText::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid #e91e63;
+  margin: 0 8px;
+}
+
+.dividerText {
+  color: #e91e63;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  white-space: nowrap;
+  background: #fff;
+  padding: 0 8px;
+}
+
+.branding {
+  text-align: center;
+  color: #e91e63;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  margin-bottom: 0.2rem;   /* Controls space between text and line */
+  margin-top: 0.2rem;      /* Controls space between title and text */
+  letter-spacing: 0.5px;
+}
+
+.underline {
+  border: none;
+  border-top: 2px solid #e91e63;
+  margin-bottom: 1.5rem;   /* Space below the line before form fields */
+  margin-top: 0;           /* No extra space above the line */
+  width: 100%;
+}
+
+.loginBackground {
+  background-image: url('/assets/adminbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

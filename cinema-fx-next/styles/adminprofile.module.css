@@ -1,0 +1,208 @@
+.pageWrapper {
+  min-height: 100vh;
+  background: #f5f5f7;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px 32px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.homeBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.homeIconImg {
+  width: 28px;
+  height: 28px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatarCircle {
+  width: 36px;
+  height: 36px;
+  background: #f8bbd0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f72585;
+}
+
+.userName {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Main Card */
+.centerCard {
+  max-width: 700px; /* Increased for better two-column layout */
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #f7258522;
+  padding: 36px 42px 32px 42px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d0036;
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  color: #bdbdbd;
+  margin-bottom: 30px;
+}
+
+.profileForm {
+  width: 100%;
+}
+
+/* Main grid: left form, right avatar */
+.formGrid {
+  display: flex;
+  gap: 48px; /* Wider gap for more white space and clarity */
+  align-items: flex-start;
+}
+
+.formSection {
+  flex: 1 1 60%;
+  min-width: 320px;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #7a0146;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid #f72585;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  background: #fff;
+  color: #2d0036;
+  box-sizing: border-box;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.inputRow .input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.changeLink {
+  color: #f72585;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 500;
+  margin-left: 8px;
+  white-space: nowrap;
+  transition: text-decoration 0.2s;
+}
+
+.changeLink:hover {
+  text-decoration: underline;
+}
+
+.avatarSection {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  min-width: 180px;
+}
+
+.avatarImg {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #ffe0ef;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #f72585;
+  display: block;
+}
+
+.uploadBtn {
+  background: #2d0036;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px #f7258522;
+  transition: background 0.2s;
+}
+
+.uploadBtn:hover {
+  background: #f72585;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.cancelBtn {
+  background: #f8bbd0;
+  color: #7a0146;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #f72585;
+  color: #fff;
+}
+
+.saveBtn {
+  background: #2d0036;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.saveBtn:hover {
+  background: #f72585;
+}

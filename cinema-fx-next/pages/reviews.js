@@ -129,7 +129,7 @@ export default function Reviews() {
             review: 'Good deals, Pls. Improve texts on ingui. Hindi lang mabasa. Excited sa collection ko ng ccfx. Will order again soon. Thanks God Bless.',
             verified: true,
             helpful: 8,
-            avatar: '/assets/avatar7.jpg',
+            avatar: '/assets/anon.png',
             photos: ['/assets/c8p1.webp','/assets/c8p2.webp', '/assets/c8p3.webp', '/assets/c8p4.webp', '/assets/c8p5.webp'],
             variant: '30ml',
             likes: 8
@@ -152,7 +152,7 @@ export default function Reviews() {
         },
         {
             id: 10,
-            customerName: 'David Lim',
+            customerName: 'g****a',
             productName: 'Magic White Sepi',
             rating: 3,
             date: '2024-12-15',
@@ -160,7 +160,7 @@ export default function Reviews() {
             review: 'I hope it will be effective. Have been using it 2x a day for 2 weeks now but there is not much effect.',
             verified: true,
             helpful: 5,
-            avatar: '/assets/avatar8.jpg',
+            avatar: '/assets/anon.png',
             photos: ['/assets/c10p1.webp'],
             variant: '30ml',
             likes: 5

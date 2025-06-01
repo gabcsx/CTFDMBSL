@@ -1,120 +1,118 @@
-// pages/products.js
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '../components/Header';
+import { useRouter } from 'next/router';
+
+export const allProducts = [
+    {
+        id: '1',
+        name: 'Sepi White',
+        description: 'MAGIC WHITE Sepi MSH with Allantoin by Cinema SinFX',
+        price: 1180,
+        image: '/assets/sepiwhite.png',
+        category: 'whitening',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '2',
+        name: 'Scalp Follicle Revive',
+        description: 'Scalp Follicle Grower Serum',
+        price: 688,
+        image: '/assets/Scalp Grower Serum.png',
+        category: 'hair-care',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '3',
+        name: 'SkinFX VITAMIN C',
+        description: 'Cinema SkinFX VITAMIN C SKIN BOOSTER 30ML',
+        price: 799,
+        image: '/assets/Skin booster.webp',
+        category: 'serums',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '4',
+        name: 'Azelaic Acid Serum',
+        description: 'CINEMA SKINFX AZELAIC ACID SERUM',
+        price: 699,
+        image: '/assets/Azelaic Acid.webp',
+        category: 'serums',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '5',
+        name: 'Renewed Glycol',
+        description: 'RENEWED GLYCOL 7% TONER',
+        price: 599,
+        image: '/assets/Toner.webp',
+        category: 'toners',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '6',
+        name: 'Skin Protocol',
+        description: 'SKIN PROTOCOL LIPID REPAIR MOISTURIZER',
+        price: 999,
+        image: '/assets/Skin protocol.webp',
+        category: 'moisturizers',
+        featured: true,
+        inStock: true
+    },
+    {
+        id: '7',
+        name: 'Glassier me Lotion',
+        description: 'Designed to create a radiant, glass-like skin effect',
+        price: 380,
+        image: '/assets/Glassier.png',
+        category: 'lotions',
+        featured: false,
+        inStock: true
+    },
+    {
+        id: '8',
+        name: 'Gentle Cleanser',
+        description: 'Advanced anti-aging night cream',
+        price: 388,
+        image: '/assets/GentleCleanser.png',
+        category: 'cleansers',
+        featured: false,
+        inStock: false
+    }
+];
+
+const categories = [
+    { value: 'all', label: 'All Products' },
+    { value: 'serums', label: 'Serums' },
+    { value: 'moisturizers', label: 'Moisturizers' },
+    { value: 'toners', label: 'Toners' },
+    { value: 'cleansers', label: 'Cleansers' },
+    { value: 'whitening', label: 'Whitening' },
+    { value: 'hair-care', label: 'Hair Care' }
+];
 
 export default function Products() {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [sortBy, setSortBy] = useState('name');
+    const router = useRouter(); // <-- Added this line
 
-    // All products data (expanded from your slideshow)
-    const allProducts = [
-        {
-            id: 1,
-            name: 'SepiWhite',
-            description: 'MAGIC WHITE Sepi MSH with Allantoin by Cinema SinFX',
-            price: 899,
-            image: '/assets/SepiWhite.png',
-            category: 'whitening',
-            featured: true,
-            inStock: true
-        },
-        {
-            id: 2,
-            name: 'Follice Revive',
-            description: 'Scalp Follicle Grower Serum',
-            price: 1299,
-            image: '/assets/Scalp Grower Serum.png',
-            category: 'hair-care',
-            featured: true,
-            inStock: true
-        },
-        {
-            id: 3,
-            name: 'SkinFX VITAMIN C',
-            description: 'Cinema SkinFX VITAMIN C SKIN BOOSTER 30ML',
-            price: 799,
-            image: '/assets/Skin booster.webp',
-            category: 'serums',
-            featured: true,
-            inStock: true
-        },
-        {
-            id: 4,
-            name: 'Azelaic Acid Serum',
-            description: 'CINEMA SKINFX AZELAIC ACID SERUM',
-            price: 699,
-            image: '/assets/Azelaic Acid.webp',
-            category: 'serums',
-            featured: true,
-            inStock: true
-        },
-        {
-            id: 5,
-            name: 'Renewed Glycol',
-            description: 'RENEWED GLYCOL 7% TONER',
-            price: 599,
-            image: '/assets/Toner.webp',
-            category: 'toners',
-            featured: true,
-            inStock: true
-        },
-        {
-            id: 6,
-            name: 'Skin Protocol',
-            description: 'SKIN PROTOCOL LIPID REPAIR MOISTURIZER',
-            price: 999,
-            image: '/assets/Skin protocol.webp',
-            category: 'moisturizers',
-            featured: true,
-            inStock: true
-        },
-        // Add more products as needed
-        {
-            id: 7,
-            name: 'Hydrating Cleanser',
-            description: 'Gentle daily cleanser for all skin types',
-            price: 449,
-            image: '/assets/placeholder.png',
-            category: 'cleansers',
-            featured: false,
-            inStock: true
-        },
-        {
-            id: 8,
-            name: 'Anti-Aging Cream',
-            description: 'Advanced anti-aging night cream',
-            price: 1499,
-            image: '/assets/placeholder.png',
-            category: 'moisturizers',
-            featured: false,
-            inStock: false
-        }
-    ];
-
-    const categories = [
-        { value: 'all', label: 'All Products' },
-        { value: 'serums', label: 'Serums' },
-        { value: 'moisturizers', label: 'Moisturizers' },
-        { value: 'toners', label: 'Toners' },
-        { value: 'cleansers', label: 'Cleansers' },
-        { value: 'whitening', label: 'Whitening' },
-        { value: 'hair-care', label: 'Hair Care' }
-    ];
-
-    // Filter and sort products
     useEffect(() => {
         let filtered = allProducts.filter(product => {
             const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                product.description.toLowerCase().includes(searchTerm.toLowerCase());
+                product.description.toLowerCase().includes(searchTerm.toLowerCase());
             const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
             return matchesSearch && matchesCategory;
         });
 
-        // Sort products
         filtered.sort((a, b) => {
             switch (sortBy) {
                 case 'price-low':
@@ -129,11 +127,6 @@ export default function Products() {
 
         setFilteredProducts(filtered);
     }, [searchTerm, selectedCategory, sortBy]);
-
-    const handleAddToCart = (product) => {
-        // Add to cart functionality
-        alert(`Added ${product.name} to cart!`);
-    };
 
     return (
         <>
@@ -207,40 +200,47 @@ export default function Products() {
                         {filteredProducts.length > 0 ? (
                             <div className="products-grid">
                                 {filteredProducts.map(product => (
-                                    <div key={product.id} className="product-card">
-                                        {product.featured && (
-                                            <div className="featured-badge">Best Seller</div>
-                                        )}
-                                        {!product.inStock && (
-                                            <div className="out-of-stock-badge">Out of Stock</div>
-                                        )}
-                                        
-                                        <div className="product-image">
-                                            <Image
-                                                src={product.image}
-                                                alt={product.name}
-                                                width={300}
-                                                height={300}
-                                                objectFit="contain"
-                                                placeholder="blur"
-                                                blurDataURL="/assets/placeholder.png"
-                                            />
-                                        </div>
-                                        
-                                        <div className="product-info">
-                                            <h3 className="product-name">{product.name}</h3>
-                                            <p className="product-description">{product.description}</p>
-                                            <div className="product-price">₱{product.price.toLocaleString()}</div>
-                                            
-                                            <button
-                                                className={`btn product-btn ${!product.inStock ? 'disabled' : ''}`}
-                                                onClick={() => handleAddToCart(product)}
-                                                disabled={!product.inStock}
-                                            >
-                                                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <Link href={`/products/${product.id}`} key={product.id} legacyBehavior>
+                                        <a className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                            <div className="product-card">
+                                                {product.featured && (
+                                                    <div className="featured-badge">Best Seller</div>
+                                                )}
+                                                {!product.inStock && (
+                                                    <div className="out-of-stock-badge">Out of Stock</div>
+                                                )}
+                                                <div className="product-image">
+                                                    <Image
+                                                        src={product.image}
+                                                        alt={product.name}
+                                                        width={300}
+                                                        height={300}
+                                                        objectFit="contain"
+                                                        placeholder="blur"
+                                                        blurDataURL="/assets/placeholder.png"
+                                                    />
+                                                </div>
+                                                <div className="product-info">
+                                                    <h3 className="product-name">{product.name}</h3>
+                                                    <p className="product-description">{product.description}</p>
+                                                    <div className="product-price">₱{product.price.toLocaleString()}</div>
+                                                    <button
+                                                        className={`btn product-btn ${!product.inStock ? 'disabled' : ''}`}
+                                                        onClick={e => {
+                                                            e.preventDefault();
+                                                            e.stopPropagation();
+                                                            if (product.inStock) {
+                                                                router.push(`/products/${product.id}`);
+                                                            }
+                                                        }}
+                                                        disabled={!product.inStock}
+                                                    >
+                                                        {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </Link>
                                 ))}
                             </div>
                         ) : (
@@ -343,6 +343,7 @@ export default function Products() {
                     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
                     position: relative;
+                    cursor: pointer;
                 }
 
                 .product-card:hover {
@@ -377,7 +378,7 @@ export default function Products() {
                 }
 
                 .product-image {
-                    height: 250px;
+                    height: 270px;
                     background: #f9f9f9;
                     display: flex;
                     align-items: center;
