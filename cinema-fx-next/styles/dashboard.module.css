@@ -1,0 +1,30 @@
+.dashboardGrid {
+  padding: 24px;
+  background: #f7f7f9;
+}
+
+.topRow {
+  display: flex;
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 24px;
+  flex: 1;
+  min-width: 340px;
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: #666;
+  margin-top: 16px;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,1091 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    background-color: #fafafa;
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Default scroll */
+}
+
+body.no-scroll {
+    overflow: hidden; /* Prevent body scroll when mobile nav is open */
+}
+
+/* Hide number input arrows in Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide number input arrows in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* Container Helpers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+header {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    z-index: 1002;
+}
+
+.logo img,
+.logo div {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Desktop Navigation (main-nav) */
+nav.main-nav {
+    /* Styles for desktop navigation container if needed */
+}
+
+nav.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav.main-nav a {
+    position: relative;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+nav.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #e91e63;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+nav.main-nav a:hover::after,
+nav.main-nav a:focus::after {
+    width: 100%;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a:focus {
+    color: #e91e63;
+    outline: none;
+}
+
+/* Hamburger Button */
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    order: 3;
+}
+
+.hamburger-button .hamburger-icon-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #222;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 1px;
+}
+
+/* Hamburger to "X" animation */
+.hamburger-button[aria-expanded="true"] .hamburger-icon-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-button[aria-expanded="true"] .hamburger-icon-bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-button[aria-expanded="true"] .hamburger-icon-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    order: 2;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+}
+
+.search-bar {
+    padding: 0.6rem 1rem;
+    padding-right: 40px;
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    width: 180px;
+    transition: width 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 240px;
+    outline: none;
+    border-color: #e91e63;
+    box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+}
+
+.search-button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.3s ease;
+}
+.search-button:hover,
+.search-button:focus {
+    color: #e91e63;
+}
+.search-button svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* Icons */
+.account-icon,
+.cart-icon {
+    font-size: 1.5rem;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.account-icon:hover,
+.cart-icon:hover,
+.account-icon:focus,
+.cart-icon:focus {
+    color: #e91e63;
+    outline: none;
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1.5px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.btn {
+    background-color: #e91e63;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #c2185b;
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
+}
+
+/* Products Section */
+.products-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.products-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: #e91e63;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 450px;
+}
+
+.mySlides {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 1.5rem;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    width: 100%;
+}
+
+.mySlides.fade.active {
+    display: block;
+    opacity: 1;
+    position: relative;
+}
+
+.mySlides img,
+.mySlides div {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.slide-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    color: #555;
+    min-height: 3em;
+}
+
+.product-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-button,
+.pause-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #e91e63;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem;
+}
+
+.nav-button:hover,
+.pause-button:hover,
+.nav-button:focus,
+.pause-button:focus {
+    color: #c2185b;
+    outline: none;
+    transform: scale(1.1);
+}
+
+/* About Section */
+.about-section {
+    background: white;
+    padding: 4rem 1rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #e91e63;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.mission-container {
+    /* Container for both mission and values if needed for combined layout */
+}
+
+.mission-content {
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.mission-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.values {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.values h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e91e63;
+    font-size: 1.8rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    background: #f9f9f9;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.value-item:hover,
+.value-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #e91e63;
+}
+.value-item h4 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.value-item p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Team Section */
+.team-section {
+    /* Styles for the container of the team grid if any */
+}
+.team-section h3 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.team-member {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 1.5rem;
+}
+
+.team-member:hover,
+.team-member:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img,
+.team-member div {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    object-position: top center;
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;
+}
+
+.team-member h4 {
+    margin: 0.5rem 1rem 0.3rem;
+    color: #222;
+    font-size: 1.3rem;
+}
+
+.team-member .role {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0 1rem 1rem;
+    line-height: 1.5;
+}
+
+/* Statistics Section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem;
+    background: #f0f0f0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-item {
+    color: #444;
+}
+.stat-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e91e63;
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.star-rating {
+    font-size: 1.3rem;
+    color: #ffc107;
+    margin-top: 0.2rem;
+}
+
+.rating-number {
+    font-weight: 700;
+    margin-right: 0.3rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+footer p {
+    margin: 0;
+}
+
+/* Create Account Page Specific Styles */
+.account-creation {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.account-creation h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #e91e63;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #e91e63;
+    box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+}
+
+.password-requirements {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.password-strength {
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.account-creation .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.login-link a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover,
+.login-link a:focus {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.875rem;
+    margin-top: 0.3rem;
+    display: block;
+    min-height: 1.2em;
+    font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+    nav.main-nav ul {
+        gap: 1.5rem;
+    }
+    nav.main-nav a {
+        font-size: 0.95rem;
+    }
+    .search-bar {
+        width: 150px;
+    }
+    .search-bar:focus {
+        width: 200px;
+    }
+    .hero h2 {
+        font-size: 2.4rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .products-section h2, .about-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+        .logo {
+        order: 1;
+        flex-grow: 0;
+    }
+    .logo img,
+    .logo div {
+        height: 40px;
+    }
+
+    .hamburger-button {
+        display: block;
+        order: 3;
+    }
+
+    .header-right {
+        display: none; /* Hide search and icons on mobile, can be moved to mobile nav if desired */
+    }
+
+    nav.main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        padding: 5rem 2rem 2rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    nav.main-nav.nav-open {
+        right: 0;
+    }
+
+    nav.main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    nav.main-nav a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 500px;
+    }
+
+    .products-section {
+        padding: 2rem 1rem;
+    }
+
+    .products-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .slideshow-container {
+        min-height: 400px;
+    }
+
+    .mySlides {
+        padding: 1rem;
+    }
+
+    .mySlides img,
+    .mySlides div {
+        max-height: 250px;
+    }
+
+    .slide-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .slide-content p {
+        font-size: 0.9rem;
+        min-height: 2.5em;
+    }
+
+    .about-section {
+        padding: 2.5rem 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .mission-content {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .mission-content h3, .values h3, .team-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+        gap: 1.5rem;
+    }
+
+    .value-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .value-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .value-item p {
+        font-size: 0.9rem;
+    }
+
+    .team-grid {
+        gap: 2rem;
+    }
+
+    .team-member img,
+    .team-member div {
+        max-height: 300px;
+    }
+
+    .team-member h4 {
+        font-size: 1.2rem;
+    }
+
+    .team-member .role {
+        font-size: 0.9rem;
+    }
+
+    .stats-section {
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .account-creation {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .account-creation h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    header {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .logo img,
+    .logo div {
+        height: 35px;
+    }
+
+    .hero {
+        height: 250px;
+        padding: 1.5rem 0.75rem;
+    }
+
+    .hero h2 {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        max-width: 400px;
+        margin-bottom: 1.25rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .products-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .slideshow-container {
+        min-height: 350px;
+    }
+
+    .mySlides img,
+    .mySlides div {
+        max-height: 200px;
+    }
+
+    .slide-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .slide-content p {
+        font-size: 0.85rem;
+        min-height: 2.2em;
+    }
+
+    .slideshow-controls {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-button,
+    .pause-button {
+        font-size: 1.5rem;
+        padding: 0.3rem;
+    }
+
+    .about-section {
+        padding: 2rem 0.75rem;
+        margin: 1rem auto;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-content h3, .values h3, .team-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .mission-content {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .value-item {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .value-icon {
+        font-size: 2rem;
+    }
+
+    .value-item h4 {
+        font-size: 1rem;
+    }
+
+    .value-item p {
+        font-size: 0.85rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .team-member img,
+    .team-member div {
+        max-height: 250px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.5rem 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+
+    .star-rating {
+        font-size: 1.1rem;
+    }
+
+    footer {
+        padding: 2rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .account-creation {
+        margin: 1.5rem 0.75rem;
+        padding: 1.25rem;
+    }
+
+    .account-creation h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .form-group input {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .password-requirements, .password-strength, .error-message {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    .login-link {
+        font-size: 0.9rem;
+        margin-top: 1.25rem;
+    }
+}
+
+/* Animation for Fade Effect */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* High Contrast Mode Support for Accessibility */
+@media (prefers-contrast: high) {
+    .btn {
+        background-color: #c2185b;
+        border: 2px solid #fff;
+    }
+
+    nav.main-nav a {
+        color: #000;
+    }
+
+    nav.main-nav a:hover::after,
+    nav.main-nav a:focus::after {
+        background-color: #000;
+    }
+
+    .search-bar:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Reduced Motion Preference for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .nav-button,
+    .pause-button,
+    .account-icon,
+    .cart-icon,
+    .value-item,
+    .team-member,
+    .search-bar,
+    .fade {
+        transition: none;
+        animation: none;
+    }
+
+    nav.main-nav {
+        transition: none;
+    }
+
+    .hamburger-button .hamburger-icon-bar {
+        transition: none;
+    }
+}

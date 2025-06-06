@@ -1,0 +1,158 @@
+.sidebarContainer {
+  background: #23232b;
+  color: #fff;
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  position: relative;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 8px 0;
+}
+
+.logoText {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 18px 0;
+  margin-bottom: 24px;
+  padding-left: 28px;
+  width: 100%;
+  border-bottom: 1px solid #39394d;
+  padding-bottom: 20px; /* Added space between profile content and divider */
+}
+
+.profileAvatarWrapper {
+  border: 3px solid #f72585;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileAvatar {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+}
+
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  flex: 1;
+}
+
+.menuItem {
+  cursor: pointer;
+  padding: 14px 24px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+
+.menuItem:hover,
+.selected {
+  background: #323246;
+  border-left: 4px solid #f72585;
+}
+
+.arrow {
+  font-size: 1em;
+  margin-left: 8px;
+}
+
+.subMenu {
+  list-style: none;
+  padding-left: 32px;
+  margin: 0;
+  background: #29293a;
+}
+
+.subMenuItem {
+  cursor: pointer;
+  padding: 10px 24px;
+  color: #bdbdbd;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  font-size: 0.95rem;
+}
+
+.subMenuItem:hover,
+.selected {
+  background: #3a3a50;
+  color: #fff;
+  border-left: 4px solid #f72585;
+}
+
+.sidebarFooter {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #bdbdbd;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border-top: 1px solid #39394d;
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 0.5rem 0;
+  width: 150px;
+}
+
+.dropdownItem {
+  display: block;           /* Make it a block element so it fills the container width */
+  width: 100%;              /* Take full width of dropdown */
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}

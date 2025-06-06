@@ -1,0 +1,198 @@
+/* === Modal Styles === */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modalBox {
+  background: #fff;
+  border-radius: 6px;
+  min-width: 370px;
+  max-width: 95vw;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: fadeInModal 0.2s;
+}
+
+@keyframes fadeInModal {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 16px 24px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modalForm {
+  padding: 18px 24px 16px 24px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  color: #222;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.modalInput {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modalInput:focus {
+  border: 1.5px solid #1976d2;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.cancelBtn {
+  background: #f5f5f5;
+  border: 1px solid #bbb;
+  color: #444;
+  padding: 6px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #eee;
+}
+
+.okBtn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.okBtn:hover {
+  background: #1252a4;
+}
+
+/* === Table Styles (optional, for better look) === */
+.viewUsersContainer {
+  margin: 32px 0 0 0;
+}
+
+.listHeader {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d81b60;
+  margin-bottom: 18px;
+}
+
+.tableWrapper {
+  background: #fff;
+  border-radius: 7px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.usersTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.usersTable th,
+.usersTable td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.usersTable th {
+  background: #ffe3f0;
+  color: #d81b60;
+  font-size: 0.97rem;
+  font-weight: 600;
+  border-bottom: 2px solid #f2b5d4;
+}
+
+.usersTable td {
+  background: #fff;
+  color: #333;
+  font-size: 0.97rem;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.usersTable tr:last-child td {
+  border-bottom: none;
+}
+
+.userCount {
+  color: #d81b60;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: right;
+  font-size: 0.97rem;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalContent label {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.modalContent input,
+.modalContent textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
