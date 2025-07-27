@@ -1,7 +1,6 @@
 // pages/admin/reports.js
-
-import AdminLayout from '../../components/AdminLayout'; // Adjust path if needed
-import AdminReports from '../../components/AdminReports'; // Your export cards
+import AdminLayout from '../../components/AdminLayout'; 
+import AdminReports from '../../components/AdminReports';
 
 export default function ReportsPage() {
   return (

@@ -2,30 +2,31 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Sidebar from './sidebar';
 import styles from '../styles/adminlayout.module.css';
+import { signOut } from 'next-auth/react';
+import { useSession } from "next-auth/react";
+// If you have a ConfirmModal component, import it here
 
 const routeToKey = {
   '/admin/dashboard': 'dashboard',
-  '/admin/reports': 'reports',
   '/admin/products': 'view-product',
   '/admin/add': 'add-product',
   '/admin/orders': 'view-orders',
+  '/admin/deliveries': 'view-deliveries',
   '/admin/users': 'view-users',
   '/admin/users/add': 'add-user',
 };
 
-export default function AdminLayout({ children, adminName, profilePic }) {
+export default function AdminLayout({ children, profilePic }) {
   const router = useRouter();
   const [activeItem, setActiveItem] = useState('dashboard');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Update active sidebar item based on route
   useEffect(() => {
     const key = routeToKey[router.pathname] || 'dashboard';
     setActiveItem(key);
   }, [router.pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -40,110 +41,55 @@ export default function AdminLayout({ children, adminName, profilePic }) {
     setActiveItem(key);
     switch (key) {
       case 'dashboard': router.push('/admin/dashboard'); break;
-      case 'reports': router.push('/admin/reports'); break;
       case 'view-product': router.push('/admin/products'); break;
       case 'add-product': router.push('/admin/add'); break;
       case 'view-orders': router.push('/admin/orders'); break;
+      case 'view-deliveries': router.push('/admin/deliveries'); break;
       case 'view-users': router.push('/admin/users'); break;
       default: break;
     }
   };
 
+  const { data: session, status } = useSession();
+
+  if (status === "loading") return <p>Loading...</p>;
+  if (!session) return <p>You are not logged in.</p>;
+
   return (
     <div className={styles.dashboardContainer}>
-      <aside className={styles.sidebar}>
-        <Sidebar
-          activeItem={activeItem}
-          onSelect={handleSelect}
-          adminName={adminName}
-          profilePic={profilePic}
-        />
-      </aside>
-      <main className={styles.mainContent}>
-        {/* Header Bar */}
-        <div
-          style={{
-            width: '100%',
-            padding: '16px 32px',
-            background: '#fff',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-            position: 'relative',
-            zIndex: 20,
-            marginBottom: 24,
-          }}
-        >
-          <div ref={dropdownRef} style={{ position: 'relative' }}>
+      <Sidebar
+        activeItem={activeItem}
+        onSelect={handleSelect}
+        adminName={session.user?.username || "Admin"}
+        profilePic={profilePic}
+      />
+      <div className={styles.mainContent}>
+        {/* Top Bar */}
+        <div className={styles.topBar}>
+          <div className={styles.profileDropdownWrapper} ref={dropdownRef}>
             <button
+              className={styles.profileDropdownButton}
               onClick={() => setDropdownOpen((open) => !open)}
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: 28,
-                cursor: 'pointer',
-                color: '#e75480',
-                borderRadius: '50%',
-                padding: 6,
-                outline: dropdownOpen ? '2px solid #e75480' : 'none',
-                display: 'flex',
-                alignItems: 'center',
-              }}
               aria-label="User Menu"
             >
-              👤
+              <span className={styles.userIconEmoji}>👤</span>
             </button>
             {dropdownOpen && (
-              <div
-                style={{
-                  position: 'absolute',
-                  right: 0,
-                  top: 40,
-                  background: '#fff',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
-                  borderRadius: 8,
-                  minWidth: 200,
-                  zIndex: 999,
-                  padding: '8px 0',
-                }}
-              >
+              <div className={styles.profileDropdownMenu}>
                 <button
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    padding: '10px 24px',
-                    background: 'none',
-                    border: 'none',
-                    textAlign: 'left',
-                    fontSize: 16,
-                    cursor: 'pointer',
-                    color: '#222',
-                  }}
+                  className={styles.profileDropdownItem}
                   onClick={() => {
                     setDropdownOpen(false);
-                    router.push('/admin/profile');
+                    router.push('/admin/user-overview');
                   }}
                 >
                   Edit Account Settings
                 </button>
-                <hr style={{ margin: 0, border: 'none', borderTop: '1px solid #eee' }} />
                 <button
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    padding: '10px 24px',
-                    background: 'none',
-                    border: 'none',
-                    textAlign: 'left',
-                    fontSize: 16,
-                    cursor: 'pointer',
-                    color: '#e75480',
-                  }}
+                  className={`${styles.profileDropdownItem} ${styles.logoutDropdownItem}`}
                   onClick={() => {
                     setDropdownOpen(false);
-                    // TODO: Replace with your real logout logic
-                    router.push('/admin/login');
+                    signOut({ callbackUrl: '/admin/login' });
                   }}
                 >
                   Log out
@@ -152,9 +98,9 @@ export default function AdminLayout({ children, adminName, profilePic }) {
             )}
           </div>
         </div>
-
         <div className={styles.contentArea}>{children}</div>
-      </main>
+        {/* If you use ConfirmModal, add it here */}
+      </div>
     </div>
   );
 }

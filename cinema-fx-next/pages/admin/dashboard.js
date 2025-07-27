@@ -1,3 +1,4 @@
+// pages/admin/dashboard.js
 import AdminLayout from '../../components/AdminLayout';
 import AdminDashboard from '../../components/admindashboard';
 

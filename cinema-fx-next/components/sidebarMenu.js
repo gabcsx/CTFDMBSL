@@ -1,29 +1,29 @@
-// components/sidebarMenu.js
 const sidebarMenu = [
-  { key: "dashboard", label: "Dashboard" },
-  { key: "reports", label: "Reports" },
+  { key: "dashboard", label: "Dashboard", icon: "🏠" },
   {
     key: "product",
     label: "Product",
+    icon: "🧴",
     submenu: [
-      { key: "view-product", label: "View Product" },
-      { key: "add-product", label: "Add Product" },
+      { key: "view-product", label: "Manage Products", icon: "📦" },    
     ],
   },
   {
     key: "purchase-order",
-    label: "Purchase Order",
+    label: "Transactions",
+    icon: "💸",
     submenu: [
-      { key: "view-orders", label: "View Orders" },
+      { key: "view-orders", label: "View Transactions", icon: "🧾" },
+      { key: "view-deliveries", label: "View Deliveries", icon: "🚚" },
     ],
   },
   {
     key: "user",
     label: "User",
+    icon: "👤",
     submenu: [
-      { key: "view-users", label: "View Users" },
+      { key: "view-users", label: "Manage Users", icon: "🧑‍🤝‍🧑" },
     ],
   },
 ];
-
 export default sidebarMenu;

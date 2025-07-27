@@ -24,11 +24,21 @@ const buttonStyle = {
   cursor: "pointer"
 };
 
+// Add your categories here
+const CATEGORY_OPTIONS = [
+  "Serum",
+  "Toner",
+  "Soap",
+  "Moisturizer",
+  "Cleanser"
+];
+
 export default function AddProduct({ onCreate }) {
   const [form, setForm] = useState({
     name: '',
     description: '',
-    image: null
+    image: null,
+    category: '', // Add this line
   });
 
   const handleChange = e => {
@@ -41,8 +51,8 @@ export default function AddProduct({ onCreate }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Add your create logic here
-    onCreate();
+    // Add your create logic here, make sure to include category!
+    onCreate(form);  // <-- Pass the entire form, including category
   };
 
   return (
@@ -66,7 +76,6 @@ export default function AddProduct({ onCreate }) {
           required
         />
       </div>
-      {/* STOCK FIELD REMOVED */}
       <div style={{ marginBottom: 24 }}>
         <label style={labelStyle}>DESCRIPTION</label>
         <textarea
@@ -76,6 +85,22 @@ export default function AddProduct({ onCreate }) {
           style={{ ...inputStyle, minHeight: 60 }}
           required
         />
+      </div>
+      {/* CATEGORY DROPDOWN */}
+      <div style={{ marginBottom: 24 }}>
+        <label style={labelStyle}>CATEGORY</label>
+        <select
+          name="category"
+          value={form.category}
+          onChange={handleChange}
+          style={inputStyle}
+          required
+        >
+          <option value="">Select category</option>
+          {CATEGORY_OPTIONS.map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
       </div>
       <div style={{ marginBottom: 32 }}>
         <label style={labelStyle}>PRODUCT IMAGE</label>

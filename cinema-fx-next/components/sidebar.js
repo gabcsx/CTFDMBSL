@@ -1,4 +1,3 @@
-// components/Sidebar.js
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/sidebar.module.css";
@@ -7,7 +6,6 @@ import sidebarMenu from "./sidebarMenu";
 export default function Sidebar({ activeItem, onSelect, adminName, profilePic }) {
   const [openMenus, setOpenMenus] = useState({});
 
-  // Open the parent menu if an active submenu is selected
   useEffect(() => {
     sidebarMenu.forEach((item) => {
       if (item.submenu) {
@@ -34,7 +32,7 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
   };
 
   return (
-    <div className={styles.sidebarContainer}>
+    <nav className={styles.sidebarContainer} tabIndex={0}>
       {/* Logo */}
       <div className={styles.logo}>
         <Image
@@ -44,13 +42,13 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
           height={150}
           style={{ objectFit: "contain" }}
         />
+        <span className={styles.logoText}>Admin</span>
       </div>
-
       {/* Profile */}
       <div className={styles.profileSection}>
         <div className={styles.profileAvatarWrapper}>
           <Image
-            src={profilePic || "/assets/default-profile.png"}
+            src={profilePic || "/assets/avatar.png"}
             alt="Profile"
             width={48}
             height={48}
@@ -59,7 +57,6 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
         </div>
         <span className={styles.profileName}>{adminName || "Admin User"}</span>
       </div>
-
       {/* Menu */}
       <ul className={styles.menuList}>
         {sidebarMenu.map((item) => (
@@ -72,8 +69,10 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
                   : ""
               }`}
               onClick={() => handleMenuClick(item.key, !!item.submenu)}
+              tabIndex={0}
             >
-              <span className={styles.menuLabel}>{item.label}</span>
+              <span>{item.icon}</span>
+              <span>{item.label}</span>
               {item.submenu && (
                 <span className={styles.arrow}>
                   {openMenus[item.key] ? "▼" : "►"}
@@ -89,8 +88,10 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
                       activeItem === sub.key ? styles.selected : ""
                     }`}
                     onClick={() => onSelect(sub.key)}
+                    tabIndex={0}
                   >
-                    {sub.label}
+                    <span>{sub.icon}</span>
+                    <span>{sub.label}</span>
                   </li>
                 ))}
               </ul>
@@ -98,6 +99,9 @@ export default function Sidebar({ activeItem, onSelect, adminName, profilePic })
           </li>
         ))}
       </ul>
-    </div>
+      <div className={styles.sidebarFooter}>
+        &copy; {new Date().getFullYear()} Admin
+      </div>
+    </nav>
   );
 }
